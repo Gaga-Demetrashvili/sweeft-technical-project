@@ -1,0 +1,35 @@
+/** @format */
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  background-color: aqua;
+  padding: 20px 15px 0;
+}
+
+.container--border {
+  border: 1px solid #555;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.userInfo-header {
+  background-color: wheat;
+  display: grid;
+  grid-template-columns: 300px 1fr 150px;
+  gap: 20px;
+}
+
+.userInfo-header img {
+  width: 100%;
+}
+
+@media (max-width: 990px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
