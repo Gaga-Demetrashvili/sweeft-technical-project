@@ -1,9 +1,9 @@
 /** @format */
 
-import { Link } from "react-router-dom";
-import { Fragment, useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../store/userContext";
-import { Card } from "./Card";
+import { Card } from "../components/Card";
+import { UserLink } from "../components/UserLink";
 import "../App.styles.css";
 import { UseHttp } from "../hooks/useHttp";
 
@@ -22,15 +22,11 @@ export const UserInfo = ({ user }) => {
     20
   );
 
-  console.log("UserInfo");
-
   const scrollHandler = e => {
     if (
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
       e.target.documentElement.scrollHeight
     ) {
-      console.log(hasMore);
-      console.log("called!");
       setPage(prevPage => prevPage + 1);
     }
   };
@@ -40,36 +36,40 @@ export const UserInfo = ({ user }) => {
   }, []);
 
   return (
-    <Fragment>
+    <div className="container container--border">
       <div className="userInfo-header">
         <img src={`${currentUser.imageUrl}?v=${currentUser.id}`} />
-        <fieldset>
+        <fieldset className="fieldset">
           <legend>Info</legend>
-          <div>
-            <strong>
-              {currentUser.prefix} {currentUser.name} {currentUser.lastName}
-            </strong>
+          <div className="fieldset-header">
+            <div>
+              <strong>
+                {currentUser.prefix} {currentUser.name} {currentUser.lastName}
+              </strong>
+            </div>
+            <div>
+              <em>{currentUser.title}</em>
+            </div>
           </div>
           <div>
-            <em>{currentUser.title}</em>
-          </div>
-          <div>
-            <span>Email</span>: {currentUser.email}
-          </div>
-          <div>
-            <span>Ip Address</span>: {currentUser.ip}
-          </div>
-          <div>
-            <span>Job Area</span>: {currentUser.jobArea}
-          </div>
-          <div>
-            <span>Job Description</span>: {currentUser.jobDescriptor}
-          </div>
-          <div>
-            <span>Job Type</span>: {currentUser.jobType}
+            <div>
+              <span>Email</span>: {currentUser.email}
+            </div>
+            <div>
+              <span>Ip Address</span>: {currentUser.ip}
+            </div>
+            <div>
+              <span>Job Area</span>: {currentUser.jobArea}
+            </div>
+            <div>
+              <span>Job Description</span>: {currentUser.jobDescriptor}
+            </div>
+            <div>
+              <span>Job Type</span>: {currentUser.jobType}
+            </div>
           </div>
         </fieldset>
-        <fieldset>
+        <fieldset className="fieldset">
           <legend>Address</legend>
           <div>
             <strong>
@@ -93,22 +93,17 @@ export const UserInfo = ({ user }) => {
           </div>
         </fieldset>
       </div>
-      {selectedUsers.map(user => {
-        return (
-          <Fragment>
-            <Link to={`user/${user.id}`}>
-              {user.prefix} {user.name} {user.lastName}
-            </Link>
-            <span>&#62;</span>
-          </Fragment>
-        );
-      })}
+      <div className="selectedUsers-container">
+        {selectedUsers.map((user, _, arr) => {
+          return <UserLink key={user.id} user={user} selectedUsers={arr} />;
+        })}
+      </div>
       <h1>Friends:</h1>
       <div className="gallery">
         {friends.map(friend => {
           return <Card key={friend.id} user={friend} />;
         })}
       </div>
-    </Fragment>
+    </div>
   );
 };

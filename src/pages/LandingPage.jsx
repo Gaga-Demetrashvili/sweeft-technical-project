@@ -13,15 +13,11 @@ export const LandingPage = props => {
     20
   );
 
-  console.log(hasMore);
-
   const scrollHandler = e => {
     if (
       window.innerHeight + e.target.documentElement.scrollTop + 1 >=
       e.target.documentElement.scrollHeight
     ) {
-      console.log(hasMore);
-      console.log("called!");
       setPage(prevPage => prevPage + 1);
     }
   };

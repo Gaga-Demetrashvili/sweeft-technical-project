@@ -18,7 +18,6 @@ export const UseHttp = (url, page, size) => {
       url: `${url}/${page}/${size}`,
     })
       .then(res => {
-        console.log(res);
         setUsers(prevUsers => {
           if (url.includes("friends") && page === 1) {
             return [...res.data.list];
@@ -26,7 +25,6 @@ export const UseHttp = (url, page, size) => {
             return [...prevUsers, ...res.data.list];
           }
         });
-        console.log(res.data.pagination.total > users.length);
         setHasMore(res.data.pagination.total > users.length);
         setLoading(false);
       })
