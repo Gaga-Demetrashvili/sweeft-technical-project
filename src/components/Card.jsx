@@ -23,7 +23,7 @@ export const Card = ({ user }) => {
   };
 
   useEffect(() => {
-    currentUser && navigate(`/user/${currentUser.id}`);
+    currentUser && navigate(`/Vagabond169.github.io/user/${currentUser.id}`);
   }, [currentUser]);
 
   return (

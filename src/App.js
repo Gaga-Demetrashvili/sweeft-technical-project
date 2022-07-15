@@ -5,8 +5,8 @@ import "./App.styles.css";
 
 function App() {
   return <Routes>
-    <Route path="/" element={<LandingPage />} />
-    <Route path="user/:userId" element={<UserInfo />} />
+    <Route path="Vagabond169.github.io" element={<LandingPage />} />
+    <Route path="Vagabond169.github.io/user/:userId" element={<UserInfo />} />
   </Routes>
 }
 

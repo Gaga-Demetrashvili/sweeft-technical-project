@@ -94,14 +94,14 @@ export const UserInfo = ({ user }) => {
         </fieldset>
       </div>
       <div className="selectedUsers-container">
-        {selectedUsers.map((user, _, arr) => {
-          return <UserLink key={user.id} user={user} selectedUsers={arr} />;
+        {selectedUsers.map((user, i, arr) => {
+          return <UserLink key={i} user={user} selectedUsers={arr} />;
         })}
       </div>
       <h1>Friends:</h1>
       <div className="gallery">
-        {friends.map(friend => {
-          return <Card key={friend.id} user={friend} />;
+        {friends.map((friend, i) => {
+          return <Card key={i} user={friend} />;
         })}
       </div>
     </div>

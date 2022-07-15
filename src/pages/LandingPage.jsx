@@ -29,13 +29,9 @@ export const LandingPage = props => {
   return (
     <div className="container">
       <div className="gallery">
-        {users.map(user => {
+        {users.map((user, i) => {
           return (
-            <Card
-              key={user.id}
-              user={user}
-              onChoosingCard={props.onChoosingCard}
-            />
+            <Card key={i} user={user} onChoosingCard={props.onChoosingCard} />
           );
         })}
       </div>

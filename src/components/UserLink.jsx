@@ -19,7 +19,10 @@ export const UserLink = ({ user, selectedUsers }) => {
   return (
     <Fragment>
       {selectedUsers.indexOf(user) !== 0 && <span>&#62;</span>}
-      <Link onClick={useLinkClickHandler} to={`/user/${id}`}>
+      <Link
+        onClick={useLinkClickHandler}
+        to={`/Vagabond169.github.io/user/${id}`}
+      >
         {prefix} {name} {lastName}
       </Link>
     </Fragment>
