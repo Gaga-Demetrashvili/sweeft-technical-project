@@ -21,7 +21,7 @@ export const UserLink = ({ user, selectedUsers }) => {
       {selectedUsers.indexOf(user) !== 0 && <span>&#62;</span>}
       <Link
         onClick={useLinkClickHandler}
-        to={`/Vagabond169.github.io/user/${id}`}
+        to={`/Vagabond169.github.io/sweeft-technical-project/user/${id}`}
       >
         {prefix} {name} {lastName}
       </Link>
